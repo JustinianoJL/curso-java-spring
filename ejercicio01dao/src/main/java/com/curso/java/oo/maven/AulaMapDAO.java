@@ -14,28 +14,26 @@ public class AulaMapDAO implements IEjercicio01DAO
 	public void createAula(Aula aula)
 	{
 		mapaAula.put(aula.getNombre(), aula);
+		System.out.println("Aula " + aula.getNombre() + " agregada");
 	}
 
 	public Collection<Aula> getAulas()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return mapaAula.values();
 	}
 
-	public void updateAula(Aula aula)
+	public void updateAula(String nombreAula, Aula aula)
 	{
-		// TODO Auto-generated method stub	
+		mapaAula.put(nombreAula, aula);	
 	}
 
-	public void deleteAula(Aula aula)
+	public void deleteAula(String nombreAula)
 	{
-		
+		mapaAula.remove(nombreAula);
 	}
 
 	public Aula getAula(String nombreAula)
 	{
-		mapaAula.get(aula.getNombre());
-		return null;
-	}
-	
+		return mapaAula.get(nombreAula);
+	}	
 }

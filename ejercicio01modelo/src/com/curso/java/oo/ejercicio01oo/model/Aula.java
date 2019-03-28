@@ -7,8 +7,7 @@ public class Aula
 	private
 	String nombre;
 	Boolean pizarra, proyector;
-	PuestoDeTrabajo puestoDelProfesor;
-	Set<PuestoDeTrabajo> puestosDeAlumnos;
+	Set<PuestoDeTrabajo> puestosDeTrabajo;
 	
 	
 	
@@ -17,13 +16,13 @@ public class Aula
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Aula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeAlumnos)
+	public Aula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeTrabajo)
 	{
 		super();
 		this.nombre = nombre;
 		this.pizarra = pizarra;
 		this.proyector = proyector;
-		this.puestosDeAlumnos = puestosDeAlumnos;
+		this.puestosDeTrabajo = puestosDeTrabajo;
 	}
 	public String getNombre()
 	{
@@ -49,19 +48,11 @@ public class Aula
 	{
 		this.proyector = proyector;
 	}
-	public PuestoDeTrabajo getPuestoDelProfesor()
-	{
-		return puestoDelProfesor;
+	public Set<PuestoDeTrabajo> getPuestosDeTrabajo() {
+		return puestosDeTrabajo;
 	}
-	public void setPuestoDelProfesor(PuestoDeTrabajo puestoDelProfesor)
+	public void setPuestosDeTrabajo(Set<PuestoDeTrabajo> puestosDeTrabajo)
 	{
-		this.puestoDelProfesor = puestoDelProfesor;
-	}
-	public Set<PuestoDeTrabajo> getPuestosDeAlumnos() {
-		return puestosDeAlumnos;
-	}
-	public void setPuestosDeAlumnos(Set<PuestoDeTrabajo> puestosDeAlumnos)
-	{
-		this.puestosDeAlumnos = puestosDeAlumnos;
+		this.puestosDeTrabajo = puestosDeTrabajo;
 	}	
 }

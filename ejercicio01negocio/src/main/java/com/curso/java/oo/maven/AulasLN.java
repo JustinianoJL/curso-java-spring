@@ -1,44 +1,70 @@
 package com.curso.java.oo.maven;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-import com.curso.java.oo.maven.IEjercicio01DAO;
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Profesor;
+import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
 public class AulasLN
 {
-	private
+
 	IEjercicio01DAO ejercicio01DAO;
 	
-	public void agregarNuevaAula(Aula aula)
+	public void agregarNuevaAula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeAlumnos)
 	{
-		/*
-		for (Aula aula : aulas)
+		ejercicio01DAO.createAula(new Aula(nombre, pizarra, proyector, puestosDeAlumnos));
+	}
+	
+	public List<Alumno> listaDeAlumnosPorAula(String nombreAula)
+	{
+		Aula aulaAux = ejercicio01DAO.getAula(nombreAula);
+		List<Alumno> listaAlumnos = new ArrayList<Alumno>();
+		for (PuestoDeTrabajo puestoTrabajo : aulaAux.getPuestosDeTrabajo())
 		{
-			ejercicio01DAO.createAula(aula);
-		}*/
+			if (puestoTrabajo.getPersona() instanceof Alumno)
+			{
+				listaAlumnos.add((Alumno) puestoTrabajo.getPersona());
+			}
+		}
+		return listaAlumnos;
 	}
 	
-	/*public List<Alumno> listaDeAlumnosPorAula(Aula aula)
+	public List<Profesor> listaDeProfesoresPorAula(String nombreAula)
 	{
-		//sdfsfsd
+		Aula aulaAux = ejercicio01DAO.getAula(nombreAula);
+		List<Profesor> listaProfesores = new ArrayList<Profesor>();
+		for (PuestoDeTrabajo puestoTrabajo : aulaAux.getPuestosDeTrabajo())
+		{
+			if (puestoTrabajo.getPersona() instanceof Profesor)
+			{
+				listaProfesores.add((Profesor) puestoTrabajo.getPersona());
+			}
+		}
+		return listaProfesores;
 	}
 	
-	public List<Profesor> listaDeProfesoresPorAula(Aula aula)
+	public void asignarAlumnoPorAula(String nombreDeAula, Alumno alumno)
 	{
-		//dfghdfgd
+		Aula aulaAux;
+		aulaAux = ejercicio01DAO.getAula(nombreDeAula);
+		
+		for (PuestoDeTrabajo puestoTrabajo : aulaAux.getPuestosDeTrabajo())
+		{
+			if (puestoTrabajo.getPersona() == null)
+			{
+				puestoTrabajo.setPersona(alumno);
+				break;
+			}
+		}//Recorrer los puestos y cuando haya un puesto libre, meter el alumno
+		ejercicio01DAO.updateAula(aulaAux); //Actualizar aula
 	}
 	
-	public void asignarAlumnoPorAula(Aula aula, Alumno alumno)
+	public void eliminarAula(String nombre)
 	{
-		//sdfgdfg
-	}
-	*/
-	public void eliminarAula(Aula aula)
-	{
-		ejercicio01DAO.deleteAula(aula);
+		ejercicio01DAO.deleteAula(nombre);
 	}
 }
