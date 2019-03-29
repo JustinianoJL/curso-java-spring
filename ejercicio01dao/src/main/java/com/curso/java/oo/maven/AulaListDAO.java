@@ -1,13 +1,14 @@
 package com.curso.java.oo.maven;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
 public class AulaListDAO implements IEjercicio01DAO
 {
-	private Set<Aula> listaDeAulas;
+	private Set<Aula> listaDeAulas = new HashSet<Aula>();
 
 	public void createAula(Aula aula)
 	{
@@ -20,11 +21,11 @@ public class AulaListDAO implements IEjercicio01DAO
 		return listaDeAulas;
 	}
 
-	public void updateAula(Aula aula)
+	public void updateAula(String nombreAula,Aula aula)
 	{
 		for (Aula a : listaDeAulas)
 		{
-			if(a.getNombre().equals(aula.getNombre()))
+			if(a.getNombre().equals(nombreAula))
 			{
 				listaDeAulas.remove(aula);
 				break;

@@ -11,12 +11,18 @@ import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
 public class AulasLN
 {
-
 	IEjercicio01DAO ejercicio01DAO;
 	
-	public void agregarNuevaAula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeAlumnos)
+	
+	public AulasLN(IEjercicio01DAO ejercicio01dao)
 	{
-		ejercicio01DAO.createAula(new Aula(nombre, pizarra, proyector, puestosDeAlumnos));
+		super();
+		ejercicio01DAO = ejercicio01dao;
+	}
+
+	public void agregarNuevaAula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeTrabajo)
+	{
+		ejercicio01DAO.createAula(new Aula(nombre, pizarra, proyector, puestosDeTrabajo));
 	}
 	
 	public List<Alumno> listaDeAlumnosPorAula(String nombreAula)
@@ -60,7 +66,7 @@ public class AulasLN
 				break;
 			}
 		}//Recorrer los puestos y cuando haya un puesto libre, meter el alumno
-		ejercicio01DAO.updateAula(aulaAux); //Actualizar aula
+		ejercicio01DAO.updateAula(nombreDeAula, aulaAux); //Actualizar aula
 	}
 	
 	public void eliminarAula(String nombre)

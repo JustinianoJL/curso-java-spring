@@ -7,7 +7,7 @@ public interface IEjercicio01DAO
 {
 	void createAula(Aula aula);
 	Collection<Aula> getAulas();
-	void updateAula(Aula aula);
+	void updateAula(String nombreAula, Aula aula);
 	void deleteAula(String nombreAula);
 	Aula getAula(String nombreAula);
 }

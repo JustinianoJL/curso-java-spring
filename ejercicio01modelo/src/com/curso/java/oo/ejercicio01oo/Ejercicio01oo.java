@@ -13,7 +13,7 @@ public class Ejercicio01oo
 {
 	public static void main(String[] args)
 	{
-		Aula aula = new Aula("Kepler",true,true, new HashSet<PuestoDeTrabajo>());
+		/*Aula aula = new Aula("Kepler",true,true, new HashSet<PuestoDeTrabajo>());
 		aula.setPuestoDelProfesor(new PuestoDeTrabajo(true));
 		for (int i = 0; i<14; i++)
 		{
@@ -40,7 +40,7 @@ public class Ejercicio01oo
 		
 		
 		
-		/*System.out.println("Creando Aula...");
+		System.out.println("Creando Aula...");
 		Aula aula = new Aula("Aula 3M", true, true, 9, 67.50);
 		System.out.println("Aula Creada");
 		

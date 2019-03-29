@@ -6,6 +6,7 @@ public class Alumno extends Persona
 	Integer calificacion;
 	boolean subvencionado;
 	
+	
 	public Integer getCalificacion()
 	{
 		return calificacion;

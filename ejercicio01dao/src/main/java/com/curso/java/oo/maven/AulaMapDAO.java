@@ -35,5 +35,11 @@ public class AulaMapDAO implements IEjercicio01DAO
 	public Aula getAula(String nombreAula)
 	{
 		return mapaAula.get(nombreAula);
-	}	
+	}
+
+	public void updateAula(Aula aula) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
