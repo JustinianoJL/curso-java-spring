@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import com.curso.java.oo.model.Alumno;
 import com.curso.java.oo.model.Aula;
@@ -24,15 +26,22 @@ public class AulasLN
 	{
 		return ejercicio01DAO;
 	}
-
+	
+	public static ApplicationContext context;
+	
+	static
+	{
+		context = new ClassPathXmlApplicationContext("beans.xml");
+	}
+	
 	public void setEjercicio01DAO(IEjercicio01DAO ejercicio01dao)
 	{
 		ejercicio01DAO = ejercicio01dao;
 	}
 
-	public void agregarNuevaAula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeTrabajo)
+	public void agregarNuevaAula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeTrabajo, PuestoDeTrabajo puestoDeProfesor)
 	{
-		ejercicio01DAO.createAula(new Aula(nombre, pizarra, proyector, puestosDeTrabajo));
+		ejercicio01DAO.createAula(new Aula(nombre, pizarra, proyector, puestosDeTrabajo, puestoDeProfesor));
 		System.out.println("Aula " + nombre + " agregada");
 	}
 	
@@ -68,7 +77,6 @@ public class AulasLN
 	{
 		Aula aulaAux;
 		aulaAux = ejercicio01DAO.getAula(nombreDeAula);
-		
 		for (PuestoDeTrabajo puestoTrabajo : aulaAux.getPuestosDeTrabajo())
 		{
 			if (puestoTrabajo.getPersona() == null)
@@ -83,19 +91,20 @@ public class AulasLN
 	
 	public void asignarProfesorPorAula(String nombreDeAula, Profesor profesor)
 	{
-		Aula aulaAux;
+		Aula aulaAux = context.getBean(Aula.class);
+		PuestoDeTrabajo puestoProfesor = context.getBean(PuestoDeTrabajo.class);
 		aulaAux = ejercicio01DAO.getAula(nombreDeAula);
-		
-		for (PuestoDeTrabajo puestoTrabajo : aulaAux.getPuestosDeTrabajo())
+		if(aulaAux.getPuestoDeProfesor().getPersona() == null)
 		{
-			if (puestoTrabajo.getPersona() == null)
-			{
-				puestoTrabajo.setPersona(profesor);
-				break;
-			}
-		}//Recorrer los puestos y cuando haya un puesto libre, meter el profesor
-		ejercicio01DAO.updateAula(nombreDeAula, aulaAux); //Actualizar el aula
-		System.out.println("Se agregó el profesor "+ profesor.getNombre() + " " + profesor.getApellido1() + " al aula " + nombreDeAula);
+			puestoProfesor.setPersona(profesor);
+			// TODO insertar el puesto de profesor en el aulaAux
+			ejercicio01DAO.updateAula(nombreDeAula, aulaAux);
+			System.out.println("Se agregó el profesor "+ profesor.getNombre() + " " + profesor.getApellido1() + " al aula " + nombreDeAula);			
+		}
+		else
+		{
+			System.out.println("Ya existe un profesor en el aula " + nombreDeAula);
+		}	
 	}
 	
 	public void eliminarAula(String nombre)

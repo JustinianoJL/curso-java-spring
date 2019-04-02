@@ -91,6 +91,7 @@ public class Ejercicio01LanzadorList
 		PuestoDeTrabajo puesto1 = context.getBean(PuestoDeTrabajo.class);
 		PuestoDeTrabajo puesto2 = context.getBean(PuestoDeTrabajo.class);
 		PuestoDeTrabajo puesto3 = context.getBean(PuestoDeTrabajo.class);
+		PuestoDeTrabajo puestoProfesor = context.getBean(PuestoDeTrabajo.class);
 		Alumno alumno1 = context.getBean(Alumno.class);
 		Alumno alumno2 = context.getBean(Alumno.class);
 		Alumno alumno3 = context.getBean(Alumno.class);
@@ -105,11 +106,11 @@ public class Ejercicio01LanzadorList
 		setPuestosDeTrabajo.add(puesto2);
 		setPuestosDeTrabajo.add(puesto3);
 		AulasLN negocio = context.getBean(AulasLN.class);
-		negocio.agregarNuevaAula("Galileo", true, true, setPuestosDeTrabajo);
+		negocio.agregarNuevaAula("Galileo", true, true, setPuestosDeTrabajo,puestoProfesor);
 		negocio.asignarAlumnoPorAula("Galileo", alumno2);
 		negocio.asignarProfesorPorAula("Galileo", profesor1);
 		negocio.listaDeAlumnosPorAula("Galileo");
-		negocio.agregarNuevaAula("Tron", true, true, null);
+		negocio.agregarNuevaAula("Tron", true, true, null,null);
 		negocio.eliminarAula("Tron");
 		imprimirListaDeAlumnos(negocio.listaDeAlumnosPorAula("Galileo"),"Galileo");
 		imprimirListaDeProfesores(negocio.listaDeProfesoresPorAula("Galileo"),"Galileo");

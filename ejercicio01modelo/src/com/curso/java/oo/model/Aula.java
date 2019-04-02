@@ -23,13 +23,14 @@ public class Aula
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Aula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeTrabajo)
+	public Aula(String nombre, Boolean pizarra, Boolean proyector, Set<PuestoDeTrabajo> puestosDeTrabajo, PuestoDeTrabajo puestoDeProfesor)
 	{
 		super();
 		this.nombre = nombre;
 		this.pizarra = pizarra;
 		this.proyector = proyector;
 		this.puestosDeTrabajo = puestosDeTrabajo;
+		this.puestoDeProfesor = puestoDeProfesor;
 	}
 	public String getNombre()
 	{
