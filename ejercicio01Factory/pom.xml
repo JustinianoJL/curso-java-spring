@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.java.oo.maven</groupId>
-	<artifactId>ejercicio01negocio</artifactId>
+	<artifactId>ejercicio01Factory</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -12,6 +12,16 @@
 		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.1.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.1.5.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>com.curso.java.oo.maven</groupId>
 			<artifactId>ejercicio01dao</artifactId>

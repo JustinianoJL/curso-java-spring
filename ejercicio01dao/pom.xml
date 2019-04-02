@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.java.oo.maven</groupId>
-	<artifactId>ejercicio01negocio</artifactId>
+	<artifactId>ejercicio01dao</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -13,8 +13,8 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>com.curso.java.oo.maven</groupId>
-			<artifactId>ejercicio01dao</artifactId>
+			<groupId>com.curso.java</groupId>
+			<artifactId>ejercicio01modelo</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
