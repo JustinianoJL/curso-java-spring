@@ -20,7 +20,7 @@ import com.curso.java.oo.model.PuestoDeTrabajo;
  * Servlet implementation class EjemploServlet
  */
 @WebServlet({"/Aulas", "/LanzadorWeb"})
-public class Ejercicio01Servlet extends HttpServlet
+public class Ejercicio01SpringWeb extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 	private static ApplicationContext context;
@@ -28,14 +28,14 @@ public class Ejercicio01Servlet extends HttpServlet
 	@Override
 	public void init() throws ServletException
 	{
-		Ejercicio01Servlet.context = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
+		Ejercicio01SpringWeb.context = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
 	}
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	
-	public Ejercicio01Servlet()
+	public Ejercicio01SpringWeb()
 	{
 		super();
 		// TODO Auto-generated constructor stub
@@ -76,10 +76,10 @@ public class Ejercicio01Servlet extends HttpServlet
 		negocio.eliminarAula("Tron");
 		imprimirListaDeAlumnos(negocio.listaDeAlumnosPorAula("Galileo"),"Galileo");
 		imprimirListaDeProfesores(negocio.listaDeProfesoresPorAula("Galileo"),"Galileo");
-		
-		request.setAttribute("alumno1", context.getBean(Alumno.class));
-		request.setAttribute("alumno2", context.getBean(Alumno.class));
-		request.setAttribute("alumno3", context.getBean(Alumno.class));
+
+		request.setAttribute("alumno1", alumno1);
+		request.setAttribute("alumno2", alumno2);
+		request.setAttribute("alumno3", alumno3);
 		getServletContext().getRequestDispatcher("/WEB-INF/jsps/saludar.jsp").forward(request, response);
 	}
 	

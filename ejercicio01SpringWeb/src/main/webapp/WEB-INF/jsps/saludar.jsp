@@ -6,8 +6,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-${alumno1}<br/>
-${alumno2}<br/>
-${alumno3}<br/>
+<h1>Aula: ${aula1.nombre}</h1>
+<br/>
+Alumno: ${alumno1.nombre}<br/>
+Alumno: ${alumno2.nombre}<br/>
+Alumno: ${alumno3.nombre}<br/>
 </body>
 </html>
