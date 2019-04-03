@@ -63,9 +63,14 @@ public class AulasLN
 	{
 		Aula aulaAux = ejercicio01DAO.getAula(nombreAula);
 		List<Profesor> listaProfesores = new ArrayList<Profesor>();
-		for (PuestoDeTrabajo puestoTrabajo : aulaAux.getPuestosDeTrabajo())
+		
+		if(aulaAux.getPuestoDeProfesor().getPersona() != null) //Revisa el puesto de profesor para añadirlo a la lista
 		{
-			if (puestoTrabajo != null && puestoTrabajo.getPersona() instanceof Profesor)
+			listaProfesores.add((Profesor) aulaAux.getPuestoDeProfesor().getPersona());
+		}
+		for (PuestoDeTrabajo puestoTrabajo : aulaAux.getPuestosDeTrabajo())//Recorre todos los puestos de trabajo
+		{
+			if (puestoTrabajo != null && puestoTrabajo.getPersona() instanceof Profesor) //Revisa cada puesto de alumnos para añadirlos a la lista
 			{
 				listaProfesores.add((Profesor) puestoTrabajo.getPersona());
 			}
@@ -97,7 +102,7 @@ public class AulasLN
 		if(aulaAux.getPuestoDeProfesor().getPersona() == null)
 		{
 			puestoProfesor.setPersona(profesor);
-			// TODO insertar el puesto de profesor en el aulaAux
+			aulaAux.setPuestoDeProfesor(puestoProfesor);
 			ejercicio01DAO.updateAula(nombreDeAula, aulaAux);
 			System.out.println("Se agregó el profesor "+ profesor.getNombre() + " " + profesor.getApellido1() + " al aula " + nombreDeAula);			
 		}

@@ -97,6 +97,8 @@ public class Ejercicio01LanzadorList
 		Alumno alumno3 = context.getBean(Alumno.class);
 		Profesor profesor1 = context.getBean(Profesor.class);
 		asignarDatosEnProfesor(profesor1, "Tomas", "Gutierrez", "Mendoza", "44444444D", "Calle de America, 84", "05-07-1964", "Desarrollo WEB",false);
+		//asignarDatosEn_________(_________, "Luis", "Perez", "Mujica", "55555555F", "Calle de Arturo, 45", "15-04-1987",_________,true);
+		//asignarDatosEn_________(_________, "Maria", "Perdomo", "Mendoza", "98765432Q", "Calle de Europa, 55", "25-05-1975",_________,false);
 		asignarDatosEnAlumno(alumno1, "Alejandro", "Luis", "Anzola", "12345678A", "Calle de Madrid, 1", "01-01-1990", 20, true);
 		asignarDatosEnAlumno(alumno2, "Pedro", "Mendez", "Guedez", "11223344B", "Calle de Alcala, 14", "02-02-1991", 19, true);
 		asignarDatosEnAlumno(alumno3, "Maria", "Gimenez", "Rodriguez", "33333333C", "Calle de Segovia, 200", "24-09-1994", 18, true);
