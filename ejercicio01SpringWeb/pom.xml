@@ -13,7 +13,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
-		<!-- Esta propiedad me la acabo de inventar, y la uso como variable en las dependencias -->
+		<!-- Esta propiedad me la acabo de inventar, y la uso como variable en 
+			deps -->
 		<spring.framework.version>5.1.5.RELEASE</spring.framework.version>
 	</properties>
 	<build>
@@ -48,8 +49,8 @@
 			<version>4.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-				<dependency>
-			<groupId>com.curso.java.oo.maven</groupId>
+		<dependency>
+			<groupId>com.curso.java.oo.negocio</groupId>
 			<artifactId>ejercicio01negocio</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>

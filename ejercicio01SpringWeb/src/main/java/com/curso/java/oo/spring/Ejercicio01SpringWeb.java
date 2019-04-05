@@ -11,24 +11,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import com.curso.java.oo.maven.AulasLN;
-import com.curso.java.oo.model.Alumno;
-import com.curso.java.oo.model.Profesor;
-import com.curso.java.oo.model.PuestoDeTrabajo;
+
+import com.curso.java.oo.modelo.Alumno;
+import com.curso.java.oo.modelo.Profesor;
+import com.curso.java.oo.modelo.PuestoDeTrabajo;
+import com.curso.java.oo.negocio.AulasLN;
 
 /**
  * Servlet implementation class EjemploServlet
  */
-@WebServlet({"/Aulas", "/LanzadorWeb"})
+@WebServlet({"/aulas", "/lanzadorWeb"})
 public class Ejercicio01SpringWeb extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
-	private static ApplicationContext context;
+	private ApplicationContext context;
 	
 	@Override
 	public void init() throws ServletException
 	{
-		Ejercicio01SpringWeb.context = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
+		ApplicationContext applicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
+		this.context = applicationContext;
 	}
 
 	/**
@@ -80,7 +82,8 @@ public class Ejercicio01SpringWeb extends HttpServlet
 		request.setAttribute("alumno1", alumno1);
 		request.setAttribute("alumno2", alumno2);
 		request.setAttribute("alumno3", alumno3);
-		getServletContext().getRequestDispatcher("/WEB-INF/jsps/saludar.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("webapp/WEB-INF/jsps/saludar.jsp").forward(request, response);
+		//ejercicio01SpringWeb/src/main/webapp/WEB-INF/beans.xml
 	}
 	
 	private void asignarDatosEnAlumno(Alumno a, String nombre, String ap1, String ap2, String dni, String dir, String fdn, Integer cal, Boolean sub)
@@ -141,19 +144,19 @@ public class Ejercicio01SpringWeb extends HttpServlet
 			System.out.println("  Fecha de Nacimiento: " + listaProfesores.get(i).getFechaDeNacimiento());
 			System.out.println("  Departamento: " + listaProfesores.get(i).getDepartamento());
 			if(listaProfesores.get(i).getMalaLeche())
-			{
-				System.out.println("  Mala Leche: SI");
-			}
+				{
+					System.out.println("  Mala Leche: SI");
+				}
 			else
 				{
 					System.out.println("  Mala Leche: NO");
 				}
 			}
 	}
-//
+
 //	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException
 //	{
-//		
+//		Codigo del Main
 //	}
 
 }
