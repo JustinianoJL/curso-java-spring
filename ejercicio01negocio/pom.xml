@@ -13,8 +13,8 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>com.curso.java.oo.factory</groupId>
-			<artifactId>ejercicio01Factory</artifactId>
+			<groupId>com.curso.java.oo.dao</groupId>
+			<artifactId>ejercicio01dao</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
