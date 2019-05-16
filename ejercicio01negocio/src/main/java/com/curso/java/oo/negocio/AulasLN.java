@@ -7,10 +7,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import com.curso.java.oo.dao.AulaListDAO;
 import com.curso.java.oo.dao.IEjercicio01DAO;
 import com.curso.java.oo.modelo.Alumno;
 import com.curso.java.oo.modelo.Aula;
@@ -22,19 +20,28 @@ import com.curso.java.oo.modelo.PuestoDeTrabajo;
 public class AulasLN
 {
 	@Autowired
-	private IEjercicio01DAO ejercicio01DAO = new AulaListDAO();
+	private IEjercicio01DAO ejercicio01DAO;
 	
+	private ApplicationContext context;
+	
+	public ApplicationContext getContext() {
+		return context;
+	}
+
+
+
+	public void setContext(ApplicationContext context) {
+		this.context = context;
+	}
+
+
+
 	public IEjercicio01DAO getEjercicio01DAO()
 	{
 		return ejercicio01DAO;
 	}
 	
-	public static ApplicationContext context;
 	
-	static
-	{
-		context = new ClassPathXmlApplicationContext("beans.xml");
-	}
 	
 	public void setEjercicio01DAO(IEjercicio01DAO ejercicio01dao)
 	{

@@ -119,6 +119,7 @@ public class EjemploServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 {
+		
 		PuestoDeTrabajo puesto1 = context.getBean(PuestoDeTrabajo.class);
 		PuestoDeTrabajo puesto2 = context.getBean(PuestoDeTrabajo.class);
 		PuestoDeTrabajo puesto3 = context.getBean(PuestoDeTrabajo.class);
@@ -139,6 +140,7 @@ public class EjemploServlet extends HttpServlet {
 		setPuestosDeTrabajo.add(puesto2);
 		setPuestosDeTrabajo.add(puesto3);
 		AulasLN negocio = context.getBean(AulasLN.class);
+		negocio.setContext(context);
 		negocio.agregarNuevaAula("Galileo", true, true, setPuestosDeTrabajo,puestoProfesor);
 		negocio.asignarAlumnoPorAula("Galileo", alumno2);
 		negocio.asignarProfesorPorAula("Galileo", profesor1);
